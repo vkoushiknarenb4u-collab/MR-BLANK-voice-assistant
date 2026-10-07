@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#080a09">
+    <meta name="description" content="MR BLANK — your personal Tamil voice assistant.">
+    <title>MR BLANK — Personal Assistant</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&family=Noto+Sans+Tamil:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/styles.css">
+    <script src="/app.js" defer></script>
+  </head>
+  <body>
+    <div class="app-shell">
+      <aside class="sidebar" aria-label="Main navigation">
+        <a class="brand-lockup" href="#home" aria-label="MR BLANK home">
+          <span class="brand-mark" aria-hidden="true">B<span>✦</span></span>
+          <strong>MR BLANK</strong>
+          <small>YOUR PERSONAL ASSISTANT</small>
+        </a>
+        <nav class="side-nav">
+          <a class="nav-item active" href="#home" data-scroll-target="home">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m3 10 9-7 9 7v10a1 1 0 0 1-1 1h-5v-7H9v7H4a1 1 0 0 1-1-1z"/></svg><span>Home</span>
+          </a>
+          <a class="nav-item" href="#chat" data-scroll-target="chat">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20 11.5a7.5 7.5 0 0 1-7.5 7.5H6l-3 2 1-4.4A7.5 7.5 0 1 1 20 11.5Z"/><path d="M8 10h8M8 13h5"/></svg><span>Chat</span>
+          </a>
+          <button class="nav-item nav-future" type="button" disabled title="Coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 3h10l4 4v13a1 1 0 0 1-1 1H4a1 1 0 0 1-1-1V4a1 1 0 0 1 1-1z"/><path d="M7 3v5h10V3M8 14h8M8 17h5"/></svg><span>Tasks</span><em>Soon</em>
+          </button>
+          <button class="nav-item nav-future" type="button" disabled title="Coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="13" r="8"/><path d="M12 9v4l3 2M9 2h6M12 2v3"/></svg><span>Reminders</span><em>Soon</em>
+          </button>
+          <button class="nav-item nav-future" type="button" disabled title="Coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 3h14a2 2 0 0 1 2 2v14l-4-2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2Z"/><path d="M7 8h10M7 12h7"/></svg><span>Notes</span><em>Soon</em>
+          </button>
+          <button class="nav-item nav-future" type="button" disabled title="Coming soon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14 6 4-4 4 4-4 4M3 21l7-7M13 5l6 6M8 8l8 8M5 11l8 8"/><path d="m3 7 4-4 4 4-4 4z"/></svg><span>Tools</span><em>Soon</em>
+          </button>
+        </nav>
+        <div class="sidebar-bottom">
+          <button class="nav-item settings-link" id="key-button" type="button">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="m19.4 15 .1.1 1.4 1.1-1.5 2.6-1.7-.6a8 8 0 0 1-1.8 1l-.3 1.8h-3l-.3-1.8a8 8 0 0 1-1.8-1l-1.7.6-1.5-2.6 1.4-1.1a8 8 0 0 1 0-2.1l-1.4-1.1 1.5-2.6 1.7.6a8 8 0 0 1 1.8-1l.3-1.8h3l.3 1.8a8 8 0 0 1 1.8 1l1.7-.6 1.5 2.6-1.4 1.1a8 8 0 0 1 0 2Z" transform="translate(-1 -1) scale(1.08)"/></svg><span>Settings &amp; API key</span>
+          </button>
+          <div class="profile-card"><span class="profile-avatar">B</span><span><strong>MR BLANK</strong><small>Tamil AI assistant</small></span><span class="profile-dot" aria-hidden="true"></span></div>
+        </div>
+      </aside>
+
+      <main class="workspace" id="home">
+        <header class="topbar">
+          <div class="greeting"><h1>வணக்கம்! <span>👋</span></h1><p>How can I help you today?</p></div>
+          <div class="topbar-actions">
+            <div class="connection" role="status" aria-live="polite"><span class="connection-dot"></span><span id="connection-label">Connecting…</span></div>
+            <button class="icon-button" id="mute-button" type="button" aria-label="Mute voice replies" title="Mute voice replies">
+              <svg class="speaker-on" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4zM15.5 8.5a5 5 0 0 1 0 7M18 5a9 9 0 0 1 0 14"/></svg>
+              <svg class="speaker-off" viewBox="0 0 24 24" aria-hidden="true"><path d="M11 5 6 9H3v6h3l5 4zM16 9l5 6M21 9l-5 6"/></svg>
+            </button>
+            <button class="icon-button header-settings" type="button" aria-label="API key settings" title="API key settings">
+              <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a8 8 0 0 0 0-6l1.5-1.1-1.5-2.6-1.8.6a8 8 0 0 0-5.2-2L12 2H9l-.4 1.9a8 8 0 0 0-2.6 1.5l-1.8-.6-1.5 2.6L4.2 9a8 8 0 0 0 0 6l-1.5 1.1 1.5 2.6 1.8-.6a8 8 0 0 0 2.6 1.5L9 21h3l.4-1.9a8 8 0 0 0 2.6-1.5l1.8.6 1.5-2.6z"/></svg>
+            </button>
+          </div>
+        </header>
+
+        <div class="dashboard-grid">
+          <div class="primary-column">
+            <section class="hero" aria-labelledby="hero-title">
+              <div class="mountain-scene" aria-hidden="true"><div class="mountain-back"></div><div class="mountain-front"></div><div class="horizon-glow"></div></div>
+              <div class="hero-content">
+                <div class="assistant-orb" aria-hidden="true">
+                  <div class="orb-wave wave-one"></div><div class="orb-wave wave-two"></div>
+                  <div class="orb-ring ring-two"></div><div class="orb-ring"></div>
+                  <div class="orb-core"><span class="orb-monogram">B</span><span class="orb-spark">✦</span></div>
+                </div>
+                <h2 id="hero-title">வணக்கம்<span class="green-period">.</span></h2>
+                <p class="hero-subtitle">I'm MR BLANK. What's on your mind?</p>
+                <div class="voice-controls">
+                  <button class="voice-mode" id="type-button" type="button" aria-label="Type a message"><span class="mode-icon"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M7 9h.01M10 9h.01M13 9h.01M16 9h.01M7 12h.01M10 12h.01M13 12h.01M16 12h.01M8 15h8"/></svg></span><span>Type</span></button>
+                  <button class="mic-button" id="mic-button" type="button" aria-label="Start speaking">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="9" y="2" width="6" height="13" rx="3"/><path d="M5 10v2a7 7 0 0 0 14 0v-2M12 19v3M8 22h8"/></svg>
+                  </button>
+                  <button class="voice-mode" id="speak-button" type="button" aria-label="Start voice input"><span class="mode-icon sound-bars"><i></i><i></i><i></i><i></i><i></i></span><span>Speak</span></button>
+                </div>
+                <p class="mic-hint" id="mic-hint">Tap to speak in Tamil, Tanglish, or English</p>
+                <div class="status-line ready" id="status-line" role="status" aria-live="polite"><span class="status-pulse"></span><span id="status-text">Ready when you are</span></div>
+              </div>
+              <div class="suggestions">
+                <div class="section-heading"><h3>Try asking me</h3><span>Choose a prompt to start</span></div>
+                <div class="prompt-grid">
+                  <button class="prompt-card" type="button" data-prompt="இன்னைக்கு என்ன செய்யலாம்? எனக்கு ஒரு simple plan சொல்லுங்க."><span class="prompt-icon green">▣</span><span>இன்னைக்கு<br>Plan என்ன?</span></button>
+                  <button class="prompt-card" type="button" data-prompt="Help me make a simple study plan for today."><span class="prompt-icon green">✧</span><span>Study plan<br>பண்ணித் தா</span></button>
+                  <button class="prompt-card" type="button" data-prompt="Give me a quick checklist for maintaining my bike."><span class="prompt-icon lime">⚙</span><span>Bike maintenance<br>checklist</span></button>
+                  <button class="prompt-card" type="button" data-prompt="எனக்கு ஒரு நல்ல தமிழ் பாடல் recommend பண்ணுங்க."><span class="prompt-icon lime">✦</span><span>Suggest a<br>Tamil song</span></button>
+                </div>
+              </div>
+            </section>
+
+            <section class="conversation-panel" id="chat" aria-label="Conversation with MR BLANK">
+              <div class="panel-heading"><div><p class="panel-kicker">YOUR CONVERSATION</p><h2>Chat with MR BLANK</h2></div>
+                <button class="clear-button" id="clear-button" type="button" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 6h18M8 6V4h8v2m3 0-1 14H6L5 6m4 4v6m6-6v6"/></svg>Clear conversation</button>
+              </div>
+              <div class="messages" id="messages" aria-live="polite" aria-relevant="additions text">
+                <div class="welcome-card" id="welcome-card"><span class="welcome-avatar">B</span><div><p class="welcome-title">Ready when you are</p><p class="welcome-copy">Ask me anything in Tamil, Tanglish, or English. Your conversation stays here while this page is open.</p></div></div>
+              </div>
+              <form class="text-form" id="text-form">
+                <span class="composer-avatar" aria-hidden="true">B</span>
+                <label class="visually-hidden" for="text-input">Type a message</label>
+                <input id="text-input" name="message" type="text" placeholder="Type a message or tap the mic and speak…" autocomplete="off" maxlength="4000">
+                <button class="send-button" id="send-button" type="submit" aria-label="Send message" disabled><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m22 2-7 20-4-9-9-4Z"/><path d="M22 2 11 13"/></svg></button>
+              </form>
+            </section>
+          </div>
+
+          <aside class="right-column" aria-label="Assistant dashboard">
+            <section class="time-card">
+              <div class="time-sky" aria-hidden="true"><div class="sky-mountain"></div></div>
+              <div class="time-content"><p id="today-date">Today</p><strong id="live-time">--:--</strong><div class="daily-note"><span></span><p>Good day<br>Stay focused. You got this!</p></div></div>
+            </section>
+            <section class="widget-card quick-actions">
+              <div class="widget-heading"><h2>Quick prompts</h2><span>Try one</span></div>
+              <div class="action-grid">
+                <button type="button" data-prompt="எனக்கு நாளைக்கான ஒரு reminder plan பண்ண உதவுங்க."><span class="action-icon yellow">♟</span><span>Plan a<br>reminder</span></button>
+                <button type="button" data-prompt="Create a simple study plan for me for today."><span class="action-icon green">▤</span><span>Study<br>plan</span></button>
+                <button type="button" data-prompt="Tell me something interesting in one short paragraph."><span class="action-icon yellow">✧</span><span>Ask<br>anything</span></button>
+                <button type="button" data-prompt="Explain how to check my bike before a ride."><span class="action-icon blue">⚙</span><span>Bike<br>help</span></button>
+                <button type="button" data-prompt="Translate this into natural Tamil: " data-fill-only><span class="action-icon blue">文</span><span>Translate<br>to Tamil</span></button>
+                <button type="button" data-prompt="Suggest a few ways to find good places to eat nearby. I am in " data-fill-only><span class="action-icon coral">⌖</span><span>Find<br>places</span></button>
+              </div>
+            </section>
+            <section class="widget-card recent-card">
+              <div class="widget-heading"><h2>Recent conversations</h2><button type="button" id="clear-recent" title="Clear conversation" aria-label="Clear conversation">Clear</button></div>
+              <div class="recent-list" id="history-list"><p class="empty-history">Your recent messages will appear here.</p></div>
+            </section>
+            <section class="online-card"><div class="online-heading"><span class="online-dot"></span><div><strong>MR BLANK is ready</strong><small>Here to help you</small></div></div><div class="waveform" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div></section>
+          </aside>
+        </div>
+      </main>
+    </div>
+
+    <dialog class="key-dialog" id="key-dialog" aria-labelledby="key-title">
+      <form action="/api/settings/key" method="post" class="key-form">
+        <button class="dialog-close" id="close-key-dialog" type="button" aria-label="Close">×</button>
+        <span class="dialog-mark">B</span><p class="panel-kicker">LOCAL SERVER SETUP</p><h2 id="key-title">Connect Gemini</h2>
+        <p class="dialog-copy">Paste your Gemini API key to save it to this computer's <code>.env</code> file. It is sent only to this local server.</p>
+        <label for="api-key">Gemini API key</label><input id="api-key" name="apiKey" type="password" autocomplete="off" required maxlength="512" placeholder="Paste your API key">
+        <button class="save-key-button" type="submit">Save API key</button>
+        <small>Keep your key private. Do not share it or add it to screenshots.</small>
+      </form>
+    </dialog>
+    <div class="toast" id="toast" role="alert" hidden></div>
+  </body>
+</html>
